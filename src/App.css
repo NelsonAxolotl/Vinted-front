@@ -1,0 +1,142 @@
+/*------ALL----*/
+* {
+  box-sizing: border-box;
+}
+
+/*------HEADER----*/
+
+header {
+  max-width: 1300px;
+  margin: 0 auto;
+  height: 120px;
+  background: white;
+  display: flex;
+  align-items: center;
+  /*border: 1px solid rebeccapurple;*/
+}
+
+header img {
+  height: 100px;
+}
+
+input {
+  height: 40px;
+  width: 630px;
+  margin-left: 45px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  background: #F5F6F7;
+  font-size: 16px;
+  border: none;
+  outline: none;
+}
+
+.grid-input {
+  display: grid;
+  grid-template-rows: 50% 50%;
+}
+
+.spany {
+  margin-left: 60px;
+  padding-top: 30px;
+  font-size: 14px;
+}
+
+.price-btw {
+  padding-left: 70px;
+}
+
+button {
+  /* margin-left: 20px;*/
+  border: 1px solid #60C4CB;
+  background: white;
+  color: #60C4CB;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: .3s ease-in-out;
+}
+
+.btn {
+  margin-left: 55px;
+  margin-top: 20px;
+}
+
+button:hover {
+  background: #60C4CB;
+  color: white;
+}
+
+.btn-first {
+  margin-right: 20px;
+  padding: 7px 30px;
+}
+
+.btn-middle {
+  padding: 7px 20px;
+}
+
+.btn-last {
+  margin-left: 60px;
+  background: #60C4CB;
+  color: white;
+  padding: 7px 5px;
+}
+
+.btn-last:hover {
+  background-color: white;
+  color: #60C4CB;
+}
+
+/*----SECTION HERO---*/
+
+section {
+  position: relative;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+section img {
+  height: 450px;
+  width: 100%;
+  object-fit: cover;
+}
+
+.frame {
+  position: absolute;
+  left: 0;
+  border: 1px solid #D0D5D9;
+  height: 270px;
+  width: 400px;
+  background: white;
+  margin-left: 300px;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.frame h1 {
+  font-size: 35px;
+  margin: 10px 0 35px 20px;
+  line-height: 40px;
+  padding-left: 8px;
+}
+
+.frame button {
+  margin-right: 160px;
+  font-size: 16px;
+  padding: 12px 15px;
+  margin-bottom: 10px;
+  background: #60C4CB;
+  color: white;
+}
+
+.empty-frame {
+  height: 40px;
+  width: 40px;
+  /*border: 1px solid red;*/
+  position: absolute;
+  right: 0;
+}
