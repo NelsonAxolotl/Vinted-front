@@ -2,8 +2,8 @@ import banner2 from "../IMG/banner2.jpg"
 const Hero = () => {
 
     return (
-        <section>
 
+        <section>
             <img src={banner2} alt="photo-banner" />
             <div className="frame">
                 <h1>Prêts à faire du tri dans vos placards?</h1>
