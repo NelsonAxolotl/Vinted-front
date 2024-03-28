@@ -12,6 +12,20 @@ const Signup = () => {
         event.preventDefault();
 
 
+
+        try {
+            const response = await axios.post('https://lereacteur-vinted-api.herokuapp.com/user/signup', {
+                email: email,
+                userName: userName,
+                password: password,
+                newsLetter: newsLetter,
+            });
+            //console.log(response);
+            const token = response.data.token;
+        } catch (error) {
+            console.log(error.response.data);
+        }
+
     };
     return (
 
