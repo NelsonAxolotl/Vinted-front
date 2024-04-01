@@ -2,13 +2,13 @@ const Nav = () => {
 
     return (
         <>
-            <div className="spany">
+            <div className="btn-effect">
                 <span>Trier par prix:</span>
                 <button></button>
-                <span className="price-btw">Prix entre:</span>
+                <span className="price-filter">Prix entre:</span>
                 <button></button>
             </div>
-            <nav className="container">
+            <nav>
                 <ul>
                     <li>Femmes</li>
                     <li>Hommes</li>
@@ -19,15 +19,7 @@ const Nav = () => {
                     <li>A propos</li>
                     <li>Notre plateforme</li>
                 </ul>
-                <div className="btn-language">
 
-                    <select name="language" id="">
-                        <option value="French">FR</option>
-                        <option value="English">EN</option>
-                        <option value="Spanish">SP</option>
-                        <option value="Dutch">DE</option>
-                    </select>
-                </div>
             </nav>
 
         </>

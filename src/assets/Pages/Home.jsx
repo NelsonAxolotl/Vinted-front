@@ -1,24 +1,23 @@
 import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import axios from "axios";
-// import { library } from '@fortawesome/fontawesome-svg-core';
-// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-// library.add(faHeart);
 import Hero from "../Components/Hero"
 import Nav from "../Components/Nav";
 import Footer from "../Components/Footer";
 
 
-const Home = () => {
+const Home = ({ search }) => {
 
     const [data, setData] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
+
     useEffect(() => {
         const fetchData = async () => {
             try {
                 const response = await axios.get(
-                    "https://lereacteur-vinted-api.herokuapp.com/offers"
+                    `https://lereacteur-vinted-api.herokuapp.com/offers?title=${search} `
                 );
+
                 console.log(response.data);
                 setData(response.data);
                 setIsLoading(false);
@@ -27,10 +26,10 @@ const Home = () => {
             }
         };
         fetchData();
-    }, []);
+    }, [search]);
 
     return isLoading ? (
-        <p>Loading...</p>
+        <p></p>
     ) : (
         <div>
             <Nav />
@@ -42,14 +41,19 @@ const Home = () => {
                             <article >
                                 <div className="global-article">
                                     <div className="avatar">
-                                        {Object.keys(offer.owner.account).includes("avatar") && (
-                                            <img src={offer.owner.account.avatar.url} alt="avatar" />
+                                        {offer.owner.account.avatar && (
+                                            <img
+                                                src={offer.owner.account.avatar?.secure_url}
+                                                alt={offer.owner.account.username}
+                                            />
                                         )}
+
                                         <span>{offer.owner.account.username}</span>
                                     </div>
 
                                     <div className="product">
-                                        <img src={offer.product_pictures[0].url} alt="" />
+                                        <img src={offer.product_pictures[0].url}
+                                            alt={offer.product_name} />
                                     </div>
 
                                     <div className="heart-price">
@@ -60,7 +64,7 @@ const Home = () => {
                                         <span>{(offer.product_price + 2).toFixed(2)} € incl.</span>
                                         {/* <FontAwesomeIcon icon="fa-light fa-heart" /> */}
                                     </div>
-                                    <div className="size">
+                                    <div className="size-mark">
                                         <span>{offer.product_details[1].TAILLE}</span>
                                         <span>{offer.product_details[0].MARQUE}</span>
                                     </div>

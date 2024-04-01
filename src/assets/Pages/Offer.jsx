@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { useParams } from "react-router-dom";
+import Footer from "../Components/Footer";
 
 const Offer = () => {
     const [data, setData] = useState({});
@@ -33,44 +34,49 @@ const Offer = () => {
     }, [id]);
 
     return isLoading ? (
-        <p>Loading...</p>
+        <p></p>
     ) : (
-        <main>
-            <div className="pic-item">
-                <img src={data.product_image.secure_url} alt="clothes" />
-            </div>
-            <div className="details">
-                <div className="details-top">
-                    <span><p>{data.product_price} €</p></span>
-                    {data.product_details.map((detail) => {
-                        //console.log(detail);
-                        const keys = Object.keys(detail);
-                        //console.log(keys);
-                        const keyName = keys[0];
-                        //console.log(keyName);
-                        return (
-                            <p key={keyName}>
-                                {keyName} {detail[keyName]}
-                            </p>
-                        );
-                    })}
+        <>
+            <main>
+                <div className="pic-item">
+                    <img src={data.product_image.secure_url} alt="clothes" />
                 </div>
-                <div className="details-bottom">
-                    <h2>{offer.product_name}</h2>
-                    <p>{offer.product_description}</p>
-                    <div className="avatar">
-                        <span><img src={offer.owner.account.avatar.url} alt="avatar" /></span>
+                <div className="details">
+                    <div className="details-top">
+                        <span><p>{data.product_price} €</p></span>
+                        {data.product_details.map((detail) => {
+                            //console.log(detail);
+                            const keys = Object.keys(detail);
+                            //console.log(keys);
+                            const keyName = keys[0];
+                            //console.log(keyName);
+                            return (
+                                <p key={keyName}>
+                                    {keyName} {detail[keyName]}
+                                </p>
 
-                        <span>{offer.owner.account.username}</span>
+                            );
+                        })}
+                    </div>
+                    <div className="details-bottom">
+                        <h2>{offer.product_name}</h2>
+                        <p>{offer.product_description}</p>
+                        <div className="avatar">
+                            <span><img src={offer.owner.account.avatar.url} alt="avatar" /></span>
+
+                            <span>{offer.owner.account.username}</span>
+                        </div>
+                    </div>
+                    <div>
+                        <div className="slide-btn-buy">
+                            <button>Acheter</button>
+                        </div>
                     </div>
                 </div>
-                <div>
-                    <button>Acheter</button>
 
-                </div>
-            </div>
-
-        </main>
+            </main>
+            <Footer />
+        </>
     );
 };
 
