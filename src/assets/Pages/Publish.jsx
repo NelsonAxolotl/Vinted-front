@@ -1,7 +1,7 @@
 import { useState } from "react";
 import axios from "axios";
 
-const Publish = ({ }) => {
+const Publish = ({ handleToken }) => {
 
     const [username, setUsername] = useState("");
     // State qui contient mon image sélectionnée
@@ -9,8 +9,8 @@ const Publish = ({ }) => {
     // State qui contient l'url fourni par cloudinary
     const [pictureFromCloudinary, setPictureFromCloudinary] = useState();
 
-    // // Simulation du fait que je vais chercher mon token
-    // const token = "1234567890";
+
+    // Simulation du fait que je vais chercher mon token
 
     const handleSubmit = async (event) => {
         event.preventDefault();
@@ -29,14 +29,20 @@ const Publish = ({ }) => {
                 "https://lereacteur-vinted-api.herokuapp.com/offer/publish",
                 formData,
                 {
-                    // headers: {
-                    //     Authorization: `Bearer ${token}`,
-                    "Content-Type": "multipart/form-data",
-                    // },
+                    headers: {
+                        Authorization: `Bearer ${handleToken}`,
+                        headers: {
+                            "Content-Type": "multipart/form-data",
+                        }
+                    },
                 }
             );
-            console.log(response.data);
-            setPictureFromCloudinary(response.data.secure_url);
+            if (response) {
+                console.log(response.data);
+                setPictureFromCloudinary(response.data.secure_url);
+            } else {
+                console.error("Réponse invalide :", response);
+            }
         } catch (error) {
             console.log(error.response.data);
         }
