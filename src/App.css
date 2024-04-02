@@ -7,6 +7,10 @@
   text-decoration: none;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 .container {
   background: white;
   position: sticky;
@@ -47,6 +51,8 @@ p {
 span {
   color: rgba(0, 0, 0, 0.557);
 }
+
+/*-------------------------HEADER--------------------------*/
 
 /*------COMPOSANT HEADER-----*/
 
@@ -113,7 +119,7 @@ header input {
 }
 
 .glass {
-  /*---- LOUPE & INPUT---*/
+  /*---- DIV LOUPE & INPUT---*/
   margin-left: 30px;
   display: flex;
   align-items: center;
@@ -129,7 +135,7 @@ header input {
 }
 
 .grid-input {
-  /*---- LOUPE & INPUT---*/
+  /*---- DIV LOUPE & INPUT---*/
   display: grid;
   grid-template-rows: 50% 50%;
 }
@@ -155,23 +161,35 @@ header input {
   outline: none;
 }
 
+.btn-first:hover {
+  transform: scale(1.12);
+}
+
 .btn-middle {
   padding: 7px 17px;
+}
+
+.btn-middle:hover {
+  transform: scale(1.12);
 }
 
 .btn-last {
   margin-left: 54px;
   background: #60C4CB;
   color: white;
-  padding: 7px 5px;
+  padding: 8px 7px;
 }
 
 .btn-last:hover {
-  background-color: white;
+  background-color: rgb(255, 255, 255);
   color: #60C4CB;
+  transform: scale(1.12);
 }
 
+/*-------------------------------------------------------------------------*/
+
 /*-----COMPOSANT NAV----ROUTE HOME*/
+
 
 .price-filter {
   padding-left: 70px;
@@ -229,7 +247,9 @@ li:hover {
   transform: scale(1.05);
 }
 
-/*----COMPOSANT HERO------/ROUTE HOME*/
+/*--------------------------------------------------------------------------*/
+
+/*----COMPOSANT HERO------ROUTE HOME*/
 
 section {
   display: flex;
@@ -300,6 +320,7 @@ section img {
 .frame button:hover {
   background: white;
   color: #60C4CB;
+  transform: scale(1.12);
 }
 
 .empty-frame {
@@ -309,6 +330,8 @@ section img {
   position: absolute;
   right: 0;
 }
+
+/*---------------------------------------------------------------------------*/
 
 /*----ITEMS SECTION----ROUTE HOME---*/
 
@@ -361,6 +384,35 @@ article {
   /* border: 1px solid blue; */
 }
 
+.product img:hover {
+  animation: flip-vertical-fwd forwards;
+  transition: .2s ease-in-out;
+}
+
+@-webkit-keyframes flip-vertical-fwd {
+  0% {
+    -webkit-transform: translateZ(0) rotateY(0);
+    transform: translateZ(0) rotateY(0);
+  }
+
+  100% {
+    -webkit-transform: translateZ(160px) rotateY(180deg);
+    transform: translateZ(160px) rotateY(180deg);
+  }
+}
+
+@keyframes flip-vertical-fwd {
+  0% {
+    -webkit-transform: translateZ(0) rotateY(0);
+    transform: translateZ(0) rotateY(0);
+  }
+
+  100% {
+    -webkit-transform: translateZ(160px) rotateY(180deg);
+    transform: translateZ(160px) rotateY(180deg);
+  }
+}
+
 /*--div prix et icon heart--*/
 .heart-price {
   display: flex;
@@ -397,6 +449,7 @@ article {
   font-size: 13px;
 }
 
+/*--------------------------------------------------------------------------*/
 /*-----ROUTE OFFERS-----*/
 
 main {
@@ -493,7 +546,7 @@ main:hover {
 
 /*----BUTTON ACHAT---*/
 main button {
-  margin-top: 25px;
+  margin-top: 45px;
   font-size: 14px;
   padding: 15px 125px;
   background: #09B1BA;
@@ -518,6 +571,7 @@ main button:hover {
   }
 }
 
+/*-------------------------------------------------------------------------*/
 /*----ROUTE SIGNUP----*/
 
 .formulaire {
@@ -612,6 +666,7 @@ form button:hover {
   margin-top: 15px;
 }
 
+/*--------------------------------------------------------------------------*/
 /*-----ROUTE LOGIN----*/
 
 .form-connexion {
@@ -674,6 +729,226 @@ form button:hover {
   transform: scale(1.1);
 }
 
+/*--------------------------------------------------------------------------*/
+/*-----ROUTE PUBLISH----*/
+.publish-container {
+  background: #EBEDEE;
+}
+
+.global {
+  max-width: 1280px;
+  margin: 0 auto;
+  /* border: 1px solid orange; */
+  height: 1260px;
+}
+
+.global h2 {
+  margin-left: 25px;
+  font-size: 26px;
+  font-family: "Indie Flower", cursive;
+  margin-bottom: 20px;
+  padding-top: 20px;
+}
+
+.global h4 {
+  font-size: 20px;
+  padding-left: 20px;
+  font-family: "Indie Flower", cursive;
+  padding-top: 25px;
+}
+
+/*-----PIC FRAME---*/
+.publish-form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.publish {
+  text-align: center;
+  border: 1px solid lightgrey;
+  height: 250px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #f7f9f8;
+  border-radius: 5px;
+}
+
+.file-frame {
+  height: 200px;
+  width: 1230px;
+  border: 1px dashed lightgrey;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: white;
+  border-radius: 5px;
+}
+
+label {
+  font-size: 25px;
+  font-family: "Indie Flower", cursive;
+  color: #09B1BA;
+  padding-left: 20px;
+}
+
+.file-frame span {
+  font-size: 30px;
+  color: #09B1BA;
+
+}
+
+/*----LARGE FORM---*/
+.form {
+  text-align: center;
+  /* border: 1px solid blue; */
+  width: 1280px;
+  margin: 0 auto;
+}
+
+.input-1 {
+  height: 225px;
+  border: 1Px solid lightgrey;
+  background: white;
+  border-radius: 5px;
+}
+
+.titre {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid lightgrey;
+  padding-bottom: 30px;
+}
+
+.input-titre {
+  width: 610px;
+  border-bottom: 1px solid lightgray;
+  border-radius: 5px;
+}
+
+.textarea-text {
+  width: 660px;
+  border: none;
+  border-bottom: 1px solid lightgray;
+  outline: none;
+  resize: none;
+}
+
+.description {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.input-2 {
+  height: 365px;
+  border: 1px solid lightgray;
+  margin-top: 20px;
+  background: white;
+  border-radius: 5px;
+}
+
+.mark,
+.etat,
+.color,
+.place,
+.taille {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 15px;
+}
+
+.mark input,
+.etat input,
+.color input,
+.place input,
+.taille input {
+  width: 610px;
+  border-bottom: 1px solid lightgray;
+}
+
+.input-3 {
+  height: 140px;
+  border: 1px solid lightgray;
+  margin-top: 20px;
+  background: white;
+  border-radius: 5px;
+}
+
+.input-3 h3 {
+  font-size: 20px;
+  padding-left: 20px;
+  padding-top: 10px;
+  font-family: "Indie Flower", cursive;
+}
+
+.input-price {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.input-price input {
+  width: 610px;
+  border-bottom: 1px solid lightgray;
+}
+
+.input-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 30px;
+  margin-left: 340px;
+}
+
+.input-box input {
+  height: 30px;
+}
+
+.input-box h4 {
+  font-size: 18px;
+  font-family: "Indie Flower", cursive;
+  padding-bottom: 10px;
+}
+
+.btn-ajouter {
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  padding: 20px 0;
+  margin-top: 10px;
+  padding-bottom: 40px;
+}
+
+.btn-add {
+  padding: 14px 11px;
+}
+
+/*---------------------------------------------------------------------------*/
+/*-----COMPOSANT CHECKOUTFORM ROUTE PAYMENT-----*/
+.payment {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #dbe1e1;
+  padding-top: 80px;
+  transition: .3s ease-in-out;
+}
+
+.payment:hover {
+  background: #60c4cb88;
+}
+
+.payment button {
+  margin-left: 10px;
+  padding: 20px 120px;
+}
+
+/*-------------------------------------------------------------------------*/
 /*----FOOTER---*/
 .foot-container {
   max-width: 1300px;
@@ -759,15 +1034,15 @@ footer ul {
   transition: .3s ease-in-out;
 }
 
-.icons span:hover {
-  color: lightgray;
-}
-
 .icons span {
   padding-left: 20px;
 }
 
+.icons span:hover {
+  color: lightgray;
+}
 
+/*-------------------------------------------------------------------------*/
 /*-----RESPONSIVE----*/
 
 
@@ -784,7 +1059,7 @@ footer ul {
     width: 500px;
   }
 
-  /*---WHITE FRAME---*/
+  /*---WHITE FRAME (HERO)---*/
   .frame {
     background: transparent;
   }
@@ -793,11 +1068,45 @@ footer ul {
     color: white;
   }
 
+  /*----ROUTE PUBLISH---*/
+  .global {
+    max-width: 1050px;
+    margin: 0 auto;
+    padding: 0 10px;
+  }
+
+  .mark input,
+  .etat input,
+  .color input,
+  .place input,
+  .taille input {
+    width: 450px;
+  }
+
+  .input-titre {
+    width: 450px;
+  }
+
+  .textarea-text {
+    width: 500px;
+  }
+
+  .input-price input {
+    width: 450px;
+  }
+
+  .input-box {
+    margin-right: -70px;
+  }
+
+  .file-frame {
+    width: 980px;
+  }
+
   /*---FOOTER---*/
 
   .foot-bottom ul {
     font-size: 16px;
-
   }
 }
 
@@ -826,6 +1135,25 @@ footer ul {
   .details {
     width: 400px;
   }
+
+  /*-----ROUTE PUBLISH-----*/
+  .global {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 15px;
+  }
+
+  .file-frame {
+    width: 820px;
+  }
+
+  .input-box {
+    margin-right: 90px;
+  }
+
+  .input-box input {
+    height: 25px;
+  }
 }
 
 @media (max-width:1080px) {
@@ -836,7 +1164,7 @@ footer ul {
   }
 }
 
-@media (max-width:1024px) {
+@media (max-width:1025px) {
 
   /*----COMPOSANT NAV----*/
   nav ul {
@@ -863,6 +1191,63 @@ footer ul {
     color: #60C4CB;
     top: 0;
     left: 0;
+  }
+
+  /*----BOUTTON DECONNEXION----*/
+  .off button {
+    display: flex;
+    flex-direction: row;
+    margin-left: -190px;
+    margin-top: 65px;
+  }
+
+  /*----ROUTE PUBLISH----*/
+  .global {
+    max-width: 750px;
+    margin: 0 auto;
+    padding: 0 15px;
+  }
+
+  .file-frame {
+    width: 660px;
+  }
+
+  .mark input,
+  .etat input,
+  .color input,
+  .place input,
+  .taille input {
+    width: 300px;
+  }
+
+  .input-titre {
+    width: 300px;
+  }
+
+  .input-price input {
+    width: 300px;
+  }
+
+  .textarea-text {
+    width: 350px;
+  }
+
+  .global h4 {
+    font-size: 17px;
+  }
+
+  .global h2 {
+    font-size: 20px;
+  }
+
+  .input-box {
+    margin-right: -40px;
+  }
+
+  /*------FOOTER-----*/
+  .foot-all {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
   }
 }
 
@@ -896,24 +1281,34 @@ footer ul {
   }
 }
 
+@media (max-width:830px) {
+
+  /*------ROUTE PUBLISH----*/
+  .global {
+    max-width: 620px;
+    margin: 0 auto;
+    padding: 0 15px;
+  }
+
+  .file-frame {
+    width: 530px;
+  }
+
+  .input-box h4 {
+    font-size: 14px;
+    font-family: "Indie Flower", cursive;
+  }
+
+  .input-box {
+    margin-left: 160px;
+  }
+
+  .input-box input {
+    height: 20px;
+  }
+}
+
 @media (max-width:730px) {
-
-  /*----HEADER BUTTON DECONNECTER----*/
-  .off button {
-    display: flex;
-    flex-direction: row;
-    margin-left: -190px;
-    margin-top: 65px;
-  }
-
-  /*---COMPOSANT NAV----*/
-  /* .price-filter {
-    display: none;
-  }
-
-  .btn-effect {
-    display: none;
-  } */
 
   /*----COMPOSANT HERO---*/
   section img {
@@ -929,11 +1324,84 @@ footer ul {
     display: block;
     margin: 0;
   }
+
+  /*-----ROUTE PUBLISH----*/
+
+  .global {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 0 15px;
+  }
+
+  .file-frame {
+    width: 520px;
+  }
 }
 
 @media (max-width:700px) {
+
+  /*----HEADER----*/
   .glass {
     width: 250px;
+  }
+
+  /*---ROUTE PUBLISH----*/
+  .global {
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 0 15px;
+  }
+
+  .file-frame {
+    width: 400px;
+  }
+
+  .file-frame span {
+    font-size: 20px;
+  }
+
+  label {
+    font-size: 20px;
+  }
+
+  .global h4 {
+    font-size: 16px;
+  }
+
+  .input-titre {
+    width: 200px;
+  }
+
+  .mark input,
+  .etat input,
+  .color input,
+  .place input,
+  .taille input {
+    width: 200px;
+  }
+
+  .input-titre {
+    width: 200px;
+  }
+
+  .input-price input {
+    width: 200px;
+  }
+
+  .textarea-text {
+    width: 250px;
+  }
+
+  .global h2 {
+    font-size: 20px;
+  }
+
+  .input-box {
+    margin-left: 10px;
+  }
+
+  .input-box {
+    margin-right: 20px;
   }
 
   /*----FOOTER----*/
@@ -948,7 +1416,8 @@ footer ul {
   .foot-all {
     display: flex;
     justify-content: center;
-    gap: 30px
+    gap: 50px;
+
   }
 
   .icons {
@@ -958,7 +1427,17 @@ footer ul {
   }
 }
 
+@media (max-width:640px) {
+
+  /*----ROUTE PUBLISH----*/
+  .file-frame {
+    width: 400px;
+  }
+}
+
 @media (max-width:580px) {
+
+  /*----FOOTER----*/
   footer {
     height: 660px;
 

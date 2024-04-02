@@ -60,8 +60,11 @@ const Header = ({ token, search, handleToken, setSearch }) => {
                         </div>
                         <div className="btn">
                             <Link to="/signup/"><button className="btn-first">S'inscrire</button></Link>
-                            <Link to="/login/"><button className="btn-middle">Se connecter</button></Link>
-                            <Link to="/publish/"><button className="btn-last">Vends tes articles</button></Link>
+                            <Link to="/login/"><button
+                                className="btn-middle">Se connecter</button></Link>
+                            <Link to="/login/"><button
+
+                                className="btn-last">Vends tes articles</button></Link>
                         </div>
                     </>
                 )}

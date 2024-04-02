@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import axios from 'axios';
-// import Cookies from "js-cookie";
+import Cookies from "js-cookie";
 import { Link, useNavigate } from "react-router-dom";
 import Footer from "../Components/Footer";
 
@@ -9,6 +9,7 @@ const Login = ({ handleToken }) => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [errorMessage, setErrorMessage] = useState("");
+    const [token, setToken] = useState();
     const navigate = useNavigate();
 
     const handleSubmit = async (event) => {
@@ -23,8 +24,8 @@ const Login = ({ handleToken }) => {
                 }
             );
             console.log(response.data);
-            //   Cookies.set("vinted-token", response.data.token, { expires: 15 });
-            //   setToken(response.data.token);
+            Cookies.set("vinted-token", response.data.token, { expires: 15 });
+            setToken(response.data.token);
             if (response.data.token)
                 handleToken(response.data.token);
             navigate("/");

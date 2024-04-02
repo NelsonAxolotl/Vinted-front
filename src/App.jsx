@@ -9,6 +9,7 @@ import Signup from "./assets/Pages/Signup"
 import Login from "./assets/Pages/Login"
 import NotFound from './assets/Pages/NotFound';
 import Publish from './assets/Pages/Publish';
+import Payment from './assets/Pages/Payment';
 /*-----Compossant----*/
 import Header from "./assets/Components/Header"
 
@@ -45,7 +46,8 @@ function App() {
         <Route path="/offers/:id" element={<Offer />} />
         <Route path="/signup/" element={<Signup handleToken={handleToken} />} />
         <Route path="/login/" element={<Login handleToken={handleToken} />} />
-        <Route path="/publish/" element={<Publish handleToken={handleToken} />} />
+        <Route path="/publish/" element={<Publish token={token} />} />
+        <Route path="/payment/" element={<Payment />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </Router>

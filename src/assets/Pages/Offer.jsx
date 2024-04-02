@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import { useParams } from "react-router-dom";
 import Footer from "../Components/Footer";
+import { Link } from "react-router-dom";
 
 const Offer = () => {
     const [data, setData] = useState({});
@@ -62,19 +63,25 @@ const Offer = () => {
                         <h2>{offer.product_name}</h2>
                         <p>{offer.product_description}</p>
                         <div className="avatar">
-                            <span><img src={offer.owner.account.avatar.url} alt="avatar" /></span>
+                            <span><img src={offer.owner.account.avatar} alt="avatar" /></span>
 
                             <span>{offer.owner.account.username}</span>
                         </div>
                     </div>
                     <div>
                         <div className="slide-btn-buy">
-                            <button>Acheter</button>
+                            <Link to={{
+                                pathname: "/payment/",
+                                state: {
+                                    title: data.product_name,
+                                    amount: data.product_price,
+                                }
+                            }}><button>Acheter</button></Link>
                         </div>
                     </div>
                 </div>
 
-            </main>
+            </main >
             <Footer />
         </>
     );
