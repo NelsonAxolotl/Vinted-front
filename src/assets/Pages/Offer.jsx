@@ -21,7 +21,7 @@ const Offer = () => {
             try {
                 // const {data} = await axios.get();
                 const response = await axios.get(
-                    `https://site--vinted-backend--l75gkv7mvq6s.code.run/offers/${id}`
+                    `https://site--vinted-backend--l75gkv7mvq6s.code.run/offer/${id}`
                 );
                 // console.log(response.data);
                 setData(response.data);

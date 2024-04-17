@@ -4,9 +4,9 @@ import axios from "axios";
 import Hero from "../Components/Hero"
 import Nav from "../Components/Nav";
 import Footer from "../Components/Footer";
+import avatar from "../IMG/axo.jpg"
 
-
-const Home = ({ search }) => {
+const Home = ({ search,prices,  sort, limit , page }) => {
 
     const [data, setData] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
@@ -15,7 +15,13 @@ const Home = ({ search }) => {
         const fetchData = async () => {
             try {
                 const response = await axios.get(
-                    `https://site--vinted-backend--l75gkv7mvq6s.code.run/offers?title=${search} `
+                    `https://site--vinted-backend--l75gkv7mvq6s.code.run/offers?
+                    title=${search}
+                    &priceMin=${prices.values[0]}
+                    &priceMax=${prices.values[1]}
+                    &sort=${sort}
+                    &page=${page}
+                   `
                 );
 
                 console.log(response.data);
@@ -26,7 +32,7 @@ const Home = ({ search }) => {
             }
         };
         fetchData();
-    }, [search]);
+    }, [search, prices, sort, limit, page]);
 
     return isLoading ? (
         <p></p>
@@ -40,19 +46,23 @@ const Home = ({ search }) => {
                         <Link key={offer._id} to={`/offers/${offer._id}`}  >
                             <article >
                                 <div className="global-article">
-                                    <div className="avatar">
-                                        {offer.owner.account.avatar && (
-                                            <img
-                                                src={offer.owner.account.avatar?.secure_url}
-                                                alt={offer.owner.account.username}
-                                            />
-                                        )}
-
-                                        <span>{offer.owner.account.username}</span>
-                                    </div>
+                                <div className="avatar">
+                         {offer.owner.account && offer.owner.account.avatar ? (
+                        <img
+                      src={offer.owner.account.avatar.secure_url}
+                      alt={offer.owner.account.username}
+                             />
+                        ) : (
+                       <img
+                   src={avatar} 
+                       alt="Placeholder Avatar"
+                     />
+                      )}
+                   <span>{offer.owner.account && offer.owner.account.username}</span>
+                   </div>
 
                                     <div className="product">
-                                        <img src={offer.product_pictures[0].url}
+                                        <img src={offer.product_image.url}
                                             alt={offer.product_name} />
                                     </div>
 

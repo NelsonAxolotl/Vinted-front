@@ -8,16 +8,17 @@ import { faPlus } from '@fortawesome/free-solid-svg-icons';
 const Publish = ({ token }) => {
 
     // State qui contient mon image sélectionnée
+  
     const [picture, setPicture] = useState();
-    const [price, setPrice] = useState();
+    const [price, setPrice] = useState("");
     const [title, setTitle] = useState("");
-    const [description, setDescritption] = useState();
-    const [condition, setCondition] = useState();
-    const [city, setCity] = useState();
-    const [brand, setBrand] = useState();
-    const [color, setColor] = useState();
-    const [size, setSize] = useState();
-    const [box, setBox] = useState();
+    const [description, setDescritption] = useState("");
+    const [condition, setCondition] = useState("");
+    const [city, setCity] = useState("");
+    const [brand, setBrand] = useState("");
+    const [color, setColor] = useState("");
+    const [size, setSize] = useState("");
+    const [box, setBox] = useState(false);
     const navigate = useNavigate();
 
     const handleSubmit = async (event) => {
@@ -56,7 +57,7 @@ const Publish = ({ token }) => {
                 navigate(`/offers/${response.data._id}`);
             }
         } catch (error) {
-            console.log(error.response.data);
+            console.log(error.response);
         }
     };
 
@@ -69,6 +70,11 @@ const Publish = ({ token }) => {
                         <div className="global">
                             <h2>Vends ton article</h2>
                             <div className="publish">
+                            <div className="avatar-placeholder">
+                                    {/* Placeholder pour une future image d'avatar */}
+                                    <div className="avatar"></div>
+                                </div>
+
                                 <div className="file-frame" >
                                     <span><FontAwesomeIcon icon={faPlus} /></span>
                                     {picture && <img src={URL.createObjectURL(picture)} alt="produit" />}
@@ -180,7 +186,7 @@ const Publish = ({ token }) => {
                                                 name="checkbox"
                                                 value={box}
                                                 onChange={(event) => {
-                                                    setBox(event.target.value)
+                                                    setBox(event.target.checked)
                                                 }} /></span>
                                             <span><h4>Je suis intéressé(e) par les échanges</h4></span>
                                         </div>
