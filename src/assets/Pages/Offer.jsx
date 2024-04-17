@@ -21,7 +21,7 @@ const Offer = () => {
             try {
                 // const {data} = await axios.get();
                 const response = await axios.get(
-                    `https://lereacteur-vinted-api.herokuapp.com/offer/${id}`
+                    `https://site--vinted-backend--l75gkv7mvq6s.code.run/offers/${id}`
                 );
                 // console.log(response.data);
                 setData(response.data);
@@ -63,8 +63,10 @@ const Offer = () => {
                         <h2>{offer.product_name}</h2>
                         <p>{offer.product_description}</p>
                         <div className="avatar">
-                            <span><img src={offer.owner.account.avatar} alt="avatar" /></span>
-
+                           
+                            <span><img src={offer.owner.account.avatar?.secure_url}
+                                                alt={offer.owner.account.username}
+                                            /></span>
                             <span>{offer.owner.account.username}</span>
                         </div>
                     </div>
@@ -74,7 +76,7 @@ const Offer = () => {
                                 pathname: "/payment/",
                                 state: {
                                     title: data.product_name,
-                                    amount: data.product_price,
+                                    price: data.product_price,
                                 }
                             }}><button>Acheter</button></Link>
                         </div>

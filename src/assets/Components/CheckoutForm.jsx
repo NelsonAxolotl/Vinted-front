@@ -51,7 +51,7 @@ const CheckoutForm = ({ title, amount }) => {
                 clientSecret: clientSecret,
                 // Éventuelle redirection
                 confirmParams: {
-                    return_url: "http://localhost:5173/offer/",
+                    return_url: "http://localhost:5173/",
                 },
                 // Bloque la redirections
                 redirect: "if_required",

@@ -15,7 +15,7 @@ const Home = ({ search }) => {
         const fetchData = async () => {
             try {
                 const response = await axios.get(
-                    `https://lereacteur-vinted-api.herokuapp.com/offers?title=${search} `
+                    `https://site--vinted-backend--l75gkv7mvq6s.code.run/offers?title=${search} `
                 );
 
                 console.log(response.data);

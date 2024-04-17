@@ -41,7 +41,7 @@ const Publish = ({ token }) => {
             // - le body, ici un formData
             // - Les potentiels headers à envoyer : ici un token et le type du body que j'envoie
             const response = await axios.post(
-                "https://lereacteur-vinted-api.herokuapp.com/offer/publish",
+                "https://site--vinted-backend--l75gkv7mvq6s.code.run/offer/publish",
                 formData,
                 {
                     headers: {

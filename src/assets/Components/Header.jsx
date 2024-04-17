@@ -23,7 +23,8 @@ const Header = ({ token, search, handleToken, setSearch }) => {
                         <div className="grid-input">
                             <div className='glass'>
                                 <span><FontAwesomeIcon icon={faMagnifyingGlass} /></span>
-                                <input type="text" placeholder="Recherche des articles" />
+                                <input type="text" placeholder="Recherche des articles"
+                                value={search} onChange={(event) => setSearch(event.target.value)} />
                             </div>
                         </div>
                         <div className='off'>
