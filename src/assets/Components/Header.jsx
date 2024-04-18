@@ -1,6 +1,5 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
-import React, { useState } from "react";
 import logo from "../IMG/logo.jpg";
 import { Link } from "react-router-dom";
 

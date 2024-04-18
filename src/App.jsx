@@ -19,7 +19,6 @@ function App() {
   // - Sinon, null
   const [token, setToken] = useState(Cookies.get("vinted-token") || null);
   const [search, setSearch] = useState("");
-  const [prices, setPrices] = useState({ values: [0, 100] });
   const [limit, setLimit] = useState();
   const [sort, setSort] = useState("");
   const [minPrice, setMinPrice] = useState("");
@@ -42,7 +41,6 @@ function App() {
         search={search}
         handleToken={handleToken}
         setSearch={setSearch}
-        prices={prices}
         minPrice={minPrice}
         maxPrice={maxPrice}
         setMinPrice={setMinPrice}
