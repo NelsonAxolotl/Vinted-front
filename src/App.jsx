@@ -1,4 +1,4 @@
-import './App.css'
+import "./App.css";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { useState } from "react";
 import Cookies from "js-cookie";
@@ -7,15 +7,13 @@ import Home from "./assets/Pages/Home";
 import Offer from "./assets/Pages/Offer";
 import Signup from "./assets/Pages/Signup";
 import Login from "./assets/Pages/Login";
-import NotFound from './assets/Pages/NotFound';
-import Publish from './assets/Pages/Publish';
-import Payment from './assets/Pages/Payment';
+import NotFound from "./assets/Pages/NotFound";
+import Publish from "./assets/Pages/Publish";
+import Payment from "./assets/Pages/Payment";
 /*-----Components----*/
-import Header from "./assets/Components/Header"
-
+import Header from "./assets/Components/Header";
 
 function App() {
-
   // State dans lequel je stocke le token. Sa valeur de base sera :
   // - Si je trouve un cookie token, ce cookie
   // - Sinon, null
@@ -24,8 +22,7 @@ function App() {
   const [prices, setPrices] = useState({ values: [0, 100] });
   const [limit, setLimit] = useState();
   const [sort, setSort] = useState("");
-  const [str, setStr] = useState("");
-  
+
   // Cette fonction permet de stocker le token dans le state et dans les cookies ou supprimer le token dans le state et dans les cookies
   const handleToken = (token) => {
     if (token) {
@@ -37,27 +34,22 @@ function App() {
     }
   };
 
-
   return (
-
     <Router>
-      <Header token={token}
+      <Header
+        token={token}
         search={search}
         handleToken={handleToken}
-        setSearch={setSearch} 
-       />
-      
+        setSearch={setSearch}
+      />
 
       <Routes>
-        <Route path="/" element={<Home 
-        search={search} 
-        str={str}
-        limit={limit}
-        prices={prices}
-        sort={sort}
-       
-
-        />} />
+        <Route
+          path="/"
+          element={
+            <Home search={search} limit={limit} prices={prices} sort={sort} />
+          }
+        />
         <Route path="/offers/:id" element={<Offer />} />
         <Route path="/signup/" element={<Signup handleToken={handleToken} />} />
         <Route path="/login/" element={<Login handleToken={handleToken} />} />
@@ -66,8 +58,7 @@ function App() {
         <Route path="*" element={<NotFound />} />
       </Routes>
     </Router>
-  )
-
+  );
 }
 
-export default App
+export default App;

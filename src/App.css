@@ -20,17 +20,17 @@ html {
 
 button {
   background: white;
-  color: #60C4CB;
+  color: #60c4cb;
   font-size: 12px;
   font-family: "Montserrat", sans-serif;
   border-radius: 5px;
-  border: 1px solid #60C4CB;
+  border: 1px solid #60c4cb;
   cursor: pointer;
-  transition: .3s ease-in-out;
+  transition: 0.3s ease-in-out;
 }
 
 button:hover {
-  background-color: #60C4CB;
+  background-color: #60c4cb;
   color: white;
 }
 
@@ -40,7 +40,7 @@ input {
 }
 
 a {
-  color: #09B1BA;
+  color: #09b1ba;
   font-size: 14px;
 }
 
@@ -72,7 +72,7 @@ header {
 
 header img {
   height: 100px;
-  transition: .3s ease-in-out;
+  transition: 0.3s ease-in-out;
 }
 
 header img:hover {
@@ -100,7 +100,7 @@ header input {
   margin: 10px 0;
   border-top-right-radius: 5px;
   border-bottom-right-radius: 5px;
-  background: #F5F6F7;
+  background: #f5f6f7;
   font-size: 16px;
 }
 
@@ -126,7 +126,7 @@ header input {
 }
 
 .glass span {
-  background: #F5F6F7;
+  background: #f5f6f7;
   font-size: 15px;
   padding: 12px 10px;
   border-top-left-radius: 5px;
@@ -151,7 +151,7 @@ header input {
 @keyframes btn {
   to {
     transform: translateX(0);
-    opacity: 1
+    opacity: 1;
   }
 }
 
@@ -175,41 +175,34 @@ header input {
 
 .btn-last {
   margin-left: 54px;
-  background: #60C4CB;
+  background: #60c4cb;
   color: white;
   padding: 8px 7px;
 }
 
 .btn-last:hover {
   background-color: rgb(255, 255, 255);
-  color: #60C4CB;
+  color: #60c4cb;
   transform: scale(1.12);
 }
+.filters {
+  max-width: 1300px;
+  margin: 0 auto;
+  padding-bottom: 40px;
 
+  border-bottom: 1px solid rgba(224, 219, 219, 0.57);
+  font-size: 15px;
+}
+.input-filter {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
 /*-------------------------------------------------------------------------*/
 
 /*-----COMPOSANT NAV----ROUTE HOME*/
 
-
-.price-filter {
-  padding-left: 70px;
-}
-
-.btn-effect {
-  max-width: 1280px;
-  margin: 0 auto;
-  font-size: 14px;
-  /*border: 1px solid red;*/
-  display: flex;
-  justify-content: left;
-  align-items: center;
-  margin-top: 20px;
-  margin-bottom: 10px;
-  padding-left: 170px;
-}
-
 nav {
-  margin: 20px 0 20px 130px;
   padding-top: 20px;
   display: grid;
   grid-template-columns: 70% 30%;
@@ -234,16 +227,16 @@ ul {
   font-size: 20px;
   font-family: "Indie Flower", cursive;
   cursor: pointer;
-  transition: .3s ease-in-out;
+  transition: 0.3s ease-in-out;
 }
 
 li {
-  transition: .1s ease-in-out;
+  transition: 0.1s ease-in-out;
   padding: 10px 0;
 }
 
 li:hover {
-  color: #09B1BA;
+  color: #09b1ba;
   transform: scale(1.05);
 }
 
@@ -312,14 +305,14 @@ section img {
   font-size: 16px;
   padding: 12px 15px;
   margin-bottom: 10px;
-  background: #60C4CB;
+  background: #60c4cb;
   color: white;
   cursor: pointer;
 }
 
 .frame button:hover {
   background: white;
-  color: #60C4CB;
+  color: #60c4cb;
   transform: scale(1.12);
 }
 
@@ -386,7 +379,7 @@ article {
 
 .product img:hover {
   animation: flip-vertical-fwd forwards;
-  transition: .2s ease-in-out;
+  transition: 0.2s ease-in-out;
 }
 
 @-webkit-keyframes flip-vertical-fwd {
@@ -434,7 +427,7 @@ article {
 }
 
 .price-include span {
-  color: #09B1BA;
+  color: #09b1ba;
 }
 
 .size-mark {
@@ -456,9 +449,9 @@ main {
   display: grid;
   grid-template-columns: 50% 50%;
   text-align: center;
-  background: #EBEDEE;
+  background: #ebedee;
   padding-bottom: 100px;
-  transition: .5s ease-in-out;
+  transition: 0.5s ease-in-out;
   opacity: 0;
   animation: offer 2s forwards;
   padding-left: 20px;
@@ -490,7 +483,7 @@ main:hover {
   /*border: 1px solid blue;*/
   background: white;
   margin-top: 30px;
-  transition: .3s ease-in-out;
+  transition: 0.3s ease-in-out;
 }
 
 .details-top {
@@ -498,10 +491,10 @@ main:hover {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  border-bottom: 1px solid #09B1BA;
+  border-bottom: 1px solid #09b1ba;
   padding-bottom: 20px;
   margin: 30px 35px 0 35px;
-  transition: .3s;
+  transition: 0.3s;
 }
 
 .details-top:hover {
@@ -549,13 +542,13 @@ main button {
   margin-top: 45px;
   font-size: 14px;
   padding: 15px 125px;
-  background: #09B1BA;
+  background: #09b1ba;
   color: white;
 }
 
 main button:hover {
   background: white;
-  color: #09B1BA;
+  color: #09b1ba;
 }
 
 .slide-btn-buy {
@@ -584,7 +577,6 @@ main button:hover {
 form {
   /*border: 1px solid red;*/
   width: 300px;
-  height: 500px;
 }
 
 form input {
@@ -620,14 +612,14 @@ form p {
 form button {
   margin: 40px 0 30px 0;
   padding: 15px 110px;
-  background: #09B1BA;
+  background: #09b1ba;
   color: white;
   font-size: 15px;
 }
 
 form button:hover {
   background: white;
-  color: #09B1BA;
+  color: #09b1ba;
 }
 
 .btn-slide {
@@ -719,7 +711,7 @@ form button:hover {
   font-family: "Montserrat", sans-serif;
   border-radius: 5px;
   cursor: pointer;
-  transition: .3s ease-in-out;
+  transition: 0.3s ease-in-out;
   margin-left: 100px;
 }
 
@@ -732,7 +724,7 @@ form button:hover {
 /*--------------------------------------------------------------------------*/
 /*-----ROUTE PUBLISH----*/
 .publish-container {
-  background: #EBEDEE;
+  background: #ebedee;
 }
 
 .global {
@@ -790,14 +782,13 @@ form button:hover {
 label {
   font-size: 25px;
   font-family: "Indie Flower", cursive;
-  color: #09B1BA;
+  color: #09b1ba;
   padding-left: 20px;
 }
 
 .file-frame span {
   font-size: 30px;
-  color: #09B1BA;
-
+  color: #09b1ba;
 }
 
 /*----LARGE FORM---*/
@@ -810,7 +801,7 @@ label {
 
 .input-1 {
   height: 225px;
-  border: 1Px solid lightgrey;
+  border: 1px solid lightgrey;
   background: white;
   border-radius: 5px;
 }
@@ -936,7 +927,7 @@ label {
   align-items: center;
   background: #dbe1e1;
   padding-top: 80px;
-  transition: .3s ease-in-out;
+  transition: 0.3s ease-in-out;
 }
 
 .payment:hover {
@@ -956,7 +947,7 @@ label {
 }
 
 footer {
-  background: #F5F6F7;
+  background: #f5f6f7;
   opacity: 0;
   animation: footer 2.5s forwards;
 }
@@ -1031,7 +1022,7 @@ footer ul {
   margin-left: 20px;
   padding-top: 10px;
   cursor: pointer;
-  transition: .3s ease-in-out;
+  transition: 0.3s ease-in-out;
 }
 
 .icons span {
@@ -1045,8 +1036,7 @@ footer ul {
 /*-------------------------------------------------------------------------*/
 /*-----RESPONSIVE----*/
 
-
-@media (max-width:1380px) {
+@media (max-width: 1380px) {
   /*----NAV UL---*/
 
   nav ul {
@@ -1110,8 +1100,7 @@ footer ul {
   }
 }
 
-@media (max-width:1240px) {
-
+@media (max-width: 1240px) {
   /*---HEADER---*/
   header {
     margin-bottom: 30px;
@@ -1156,16 +1145,14 @@ footer ul {
   }
 }
 
-@media (max-width:1080px) {
-
+@media (max-width: 1080px) {
   /*----HEADER----*/
   .btn-last {
     display: none;
   }
 }
 
-@media (max-width:1025px) {
-
+@media (max-width: 1025px) {
   /*----COMPOSANT NAV----*/
   nav ul {
     gap: 22px;
@@ -1188,7 +1175,7 @@ footer ul {
   .frame button {
     background: white;
     position: absolute;
-    color: #60C4CB;
+    color: #60c4cb;
     top: 0;
     left: 0;
   }
@@ -1251,8 +1238,7 @@ footer ul {
   }
 }
 
-@media (max-width:900px) {
-
+@media (max-width: 900px) {
   /*----HEADER DIV LOUPE & INPUT---*/
   .glass {
     width: 400px;
@@ -1281,8 +1267,7 @@ footer ul {
   }
 }
 
-@media (max-width:830px) {
-
+@media (max-width: 830px) {
   /*------ROUTE PUBLISH----*/
   .global {
     max-width: 620px;
@@ -1308,8 +1293,7 @@ footer ul {
   }
 }
 
-@media (max-width:730px) {
-
+@media (max-width: 730px) {
   /*----COMPOSANT HERO---*/
   section img {
     height: 400px;
@@ -1338,8 +1322,7 @@ footer ul {
   }
 }
 
-@media (max-width:700px) {
-
+@media (max-width: 700px) {
   /*----HEADER----*/
   .glass {
     width: 250px;
@@ -1417,7 +1400,6 @@ footer ul {
     display: flex;
     justify-content: center;
     gap: 50px;
-
   }
 
   .icons {
@@ -1427,19 +1409,16 @@ footer ul {
   }
 }
 
-@media (max-width:640px) {
-
+@media (max-width: 640px) {
   /*----ROUTE PUBLISH----*/
   .file-frame {
     width: 400px;
   }
 }
 
-@media (max-width:580px) {
-
+@media (max-width: 580px) {
   /*----FOOTER----*/
   footer {
     height: 660px;
-
   }
 }
