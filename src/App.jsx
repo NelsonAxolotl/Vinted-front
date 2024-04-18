@@ -22,9 +22,9 @@ function App() {
   const [token, setToken] = useState(Cookies.get("vinted-token") || null);
   const [search, setSearch] = useState("");
   const [prices, setPrices] = useState({ values: [0, 100] });
+  const [limit, setLimit] = useState();
   const [sort, setSort] = useState("");
-  const [page, setPage]= useState(1);
-
+  const [str, setStr] = useState("");
   
   // Cette fonction permet de stocker le token dans le state et dans les cookies ou supprimer le token dans le state et dans les cookies
   const handleToken = (token) => {
@@ -44,18 +44,19 @@ function App() {
       <Header token={token}
         search={search}
         handleToken={handleToken}
-        setSearch={setSearch} />
+        setSearch={setSearch} 
+       />
+      
 
       <Routes>
         <Route path="/" element={<Home 
         search={search} 
-        prices={prices} 
-        setPrices={setPrices}
-        sort={sort} 
-        setSort={setSort}
-        page={page}
-        setPage={setPage}
+        str={str}
+        limit={limit}
+        prices={prices}
+        sort={sort}
        
+
         />} />
         <Route path="/offers/:id" element={<Offer />} />
         <Route path="/signup/" element={<Signup handleToken={handleToken} />} />

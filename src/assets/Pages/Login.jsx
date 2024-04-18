@@ -23,7 +23,7 @@ const Login = ({ handleToken }) => {
                     password: password,
                 }
             );
-            console.log(response.data);
+            // console.log(response.data);
             Cookies.set("vinted-token", response.data.token, { expires: 15 });
             setToken(response.data.token);
             if (response.data.token)

@@ -1,6 +1,6 @@
 import { loadStripe } from "@stripe/stripe-js";
 import { Elements } from "@stripe/react-stripe-js";
-import { useLocation, Navigate } from "react-router-dom";
+// import { useLocation, Navigate } from "react-router-dom";
 
 import CheckoutForm from "../Components/CheckoutForm";
 import Footer from "../Components/Footer";

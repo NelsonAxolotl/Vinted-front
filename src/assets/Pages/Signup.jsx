@@ -26,7 +26,7 @@ const Signup = ({ handleToken }) => {
                 newsletter: newsletter,
             });
 
-            console.log(response.data);
+            // console.log(response.data);
             handleToken(response.data.token);
             navigate("/");
 

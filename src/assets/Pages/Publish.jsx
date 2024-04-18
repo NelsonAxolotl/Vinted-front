@@ -52,7 +52,7 @@ const Publish = ({ token }) => {
                 }
             );
 
-            console.log(response.data);
+            // console.log(response.data);
             if (response.data._id) {
                 navigate(`/offers/${response.data._id}`);
             }

@@ -6,25 +6,36 @@ import Nav from "../Components/Nav";
 import Footer from "../Components/Footer";
 import avatar from "../IMG/axo.jpg"
 
-const Home = ({ search,prices,  sort, limit , page }) => {
+const Home = ({ search, str, prices, sort, limit}) => {
 
     const [data, setData] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
+    // const [page, setPage] = useState(1);
 
     useEffect(() => {
         const fetchData = async () => {
             try {
+                console.log("title:", str);
+                console.log("Prices:", prices);
+                console.log("Sort:", sort);
+                console.log("Limit:", limit);
+                
+
                 const response = await axios.get(
                     `https://site--vinted-backend--l75gkv7mvq6s.code.run/offers?
-                    title=${search}
-                    &priceMin=${prices.values[0]}
-                    &priceMax=${prices.values[1]}
-                    &sort=${sort}
-                    &page=${page}
-                   `
+                     `,{
+                        params:{
+                            title:str,
+                            priceMin:prices.values[0],
+                            priceMax:prices.values[1],
+                            sort:sort,
+                            limit:limit,
+                        }
+                     }
+                  
                 );
 
-                console.log(response.data);
+                // console.log(response.data);
                 setData(response.data);
                 setIsLoading(false);
             } catch (error) {
@@ -32,7 +43,7 @@ const Home = ({ search,prices,  sort, limit , page }) => {
             }
         };
         fetchData();
-    }, [search, prices, sort, limit, page]);
+    }, [search, str, prices, sort, limit ]);
 
     return isLoading ? (
         <p></p>
