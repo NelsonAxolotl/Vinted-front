@@ -22,7 +22,8 @@ function App() {
   const [prices, setPrices] = useState({ values: [0, 100] });
   const [limit, setLimit] = useState();
   const [sort, setSort] = useState("");
-
+  const [minPrice, setMinPrice] = useState("");
+  const [maxPrice, setMaxPrice] = useState("");
   // Cette fonction permet de stocker le token dans le state et dans les cookies ou supprimer le token dans le state et dans les cookies
   const handleToken = (token) => {
     if (token) {
@@ -41,13 +42,28 @@ function App() {
         search={search}
         handleToken={handleToken}
         setSearch={setSearch}
+        prices={prices}
+        minPrice={minPrice}
+        maxPrice={maxPrice}
+        setMinPrice={setMinPrice}
+        setMaxPrice={setMaxPrice}
       />
 
       <Routes>
         <Route
           path="/"
           element={
-            <Home search={search} limit={limit} prices={prices} sort={sort} />
+            <Home
+              search={search}
+              limit={limit}
+              setLimit={setLimit}
+              prices={prices}
+              setPrices={setPrices}
+              sort={sort}
+              setSort={setSort}
+              minPrice={minPrice}
+              maxPrice={maxPrice}
+            />
           }
         />
         <Route path="/offers/:id" element={<Offer />} />

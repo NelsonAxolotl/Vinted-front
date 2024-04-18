@@ -4,11 +4,18 @@ import React, { useState } from "react";
 import logo from "../IMG/logo.jpg";
 import { Link } from "react-router-dom";
 
-const Header = ({ token, search, handleToken, setSearch, prices }) => {
+const Header = ({
+  token,
+  search,
+  handleToken,
+  setSearch,
+  minPrice,
+  maxPrice,
+  setMinPrice,
+  setMaxPrice,
+}) => {
   // const token = Cookies.get("vinted-token");
   // console.log(token);
-  const [minPrice, setMinPrice] = useState("");
-  const [maxPrice, setMaxPrice] = useState("");
 
   const handleMinPriceChange = (e) => {
     setMinPrice(e.target.value);

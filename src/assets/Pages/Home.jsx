@@ -6,9 +6,10 @@ import Nav from "../Components/Nav";
 import Footer from "../Components/Footer";
 import avatar from "../IMG/axo.jpg";
 
-const Home = ({ search, prices, sort }) => {
+const Home = ({ search, prices, sort, minPrice, maxPrice }) => {
   const [data, setData] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
+
   // const [page, setPage] = useState(1);
 
   useEffect(() => {
@@ -30,7 +31,7 @@ const Home = ({ search, prices, sort }) => {
       }
     };
     fetchData();
-  }, [search, prices, sort]);
+  }, [search, prices, sort, minPrice, maxPrice]);
 
   return isLoading ? (
     <p></p>
