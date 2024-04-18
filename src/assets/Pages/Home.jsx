@@ -6,7 +6,7 @@ import Nav from "../Components/Nav";
 import Footer from "../Components/Footer";
 import avatar from "../IMG/axo.jpg"
 
-const Home = ({ search, str, prices, sort, limit}) => {
+const Home = ({ search, str, prices, sort}) => {
 
     const [data, setData] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
@@ -18,20 +18,10 @@ const Home = ({ search, str, prices, sort, limit}) => {
                 console.log("title:", str);
                 console.log("Prices:", prices);
                 console.log("Sort:", sort);
-                console.log("Limit:", limit);
-                
+               
 
                 const response = await axios.get(
-                    `https://site--vinted-backend--l75gkv7mvq6s.code.run/offers?
-                     `,{
-                        params:{
-                            title:str,
-                            priceMin:prices.values[0],
-                            priceMax:prices.values[1],
-                            sort:sort,
-                            limit:limit,
-                        }
-                     }
+                    `https://site--vinted-backend--l75gkv7mvq6s.code.run/offers?title=${str}&priceMax=${prices.values[1]}&priceMin=${prices.values[0]}&sort=${sort}`,
                   
                 );
 
@@ -43,7 +33,7 @@ const Home = ({ search, str, prices, sort, limit}) => {
             }
         };
         fetchData();
-    }, [search, str, prices, sort, limit ]);
+    }, [search, str, prices, sort]);
 
     return isLoading ? (
         <p></p>
