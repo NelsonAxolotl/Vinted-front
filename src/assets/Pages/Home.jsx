@@ -10,7 +10,7 @@ const Home = ({ search, priceMax, priceMin, sort }) => {
   const [data, setData] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [currentPage, setCurrentPage] = useState(1);
-  const pageSize = 10;
+  const limit = 10;
 
   useEffect(() => {
     const fetchData = async () => {
@@ -18,10 +18,10 @@ const Home = ({ search, priceMax, priceMin, sort }) => {
         // console.log("title:", search);
         // console.log("Prices:", prices);
         // console.log("Sort:", sort);
-        const skip = (currentPage - 1) * pageSize;
+        const skip = (currentPage - 1) * limit;
 
         const response = await axios.get(
-          `https://site--vinted-backend--l75gkv7mvq6s.code.run/offers?title=${search}&priceMax=${priceMax}&priceMin=${priceMin}&sort=${sort}&page=${currentPage}&limit=${pageSize}&skip=${skip}`
+          `https://site--vinted-backend--l75gkv7mvq6s.code.run/offers?title=${search}&priceMax=${priceMax}&priceMin=${priceMin}&sort=${sort}&page=${currentPage}&limit=${limit}&skip=${skip}`
         );
 
         // console.log(response.data);
@@ -40,7 +40,7 @@ const Home = ({ search, priceMax, priceMin, sort }) => {
   const handlePrevPage = () => {
     setCurrentPage((prevPage) => prevPage - 1);
   };
-  const totalPages = Math.ceil(data.count / pageSize);
+  const totalPages = Math.ceil(data.count / limit);
 
   return isLoading ? (
     <p></p>
