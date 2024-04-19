@@ -189,14 +189,15 @@ header input {
   max-width: 1300px;
   margin: 0 auto;
   padding-bottom: 40px;
-
+  padding-left: 160px;
   border-bottom: 1px solid rgba(224, 219, 219, 0.57);
-  font-size: 15px;
 }
 .input-filter {
   display: flex;
-  justify-content: flex-start;
-  align-items: center;
+}
+.input-filter input {
+  width: 100px;
+  border-bottom: 1px solid #09b1ba;
 }
 /*-------------------------------------------------------------------------*/
 
@@ -204,11 +205,9 @@ header input {
 
 nav {
   padding-top: 20px;
-  display: grid;
-  grid-template-columns: 70% 30%;
-  align-items: center;
   opacity: 0;
   animation: nav 1.8s forwards;
+  margin-left: 0px;
 }
 
 @keyframes nav {
@@ -313,7 +312,7 @@ section img {
 .frame button:hover {
   background: white;
   color: #60c4cb;
-  transform: scale(1.12);
+  transform: scale(1.1);
 }
 
 .empty-frame {
@@ -331,7 +330,7 @@ section img {
 .article-container {
   max-width: 1300px;
   margin: 0 auto;
-  margin-bottom: 50px;
+  margin-bottom: 100px;
   display: flex;
   flex-wrap: wrap;
   justify-content: flex-start;
@@ -450,7 +449,7 @@ main {
   grid-template-columns: 50% 50%;
   text-align: center;
   background: #ebedee;
-  padding-bottom: 100px;
+
   transition: 0.5s ease-in-out;
   opacity: 0;
   animation: offer 2s forwards;
@@ -471,7 +470,7 @@ main:hover {
 .pic-item img {
   height: 650px;
   width: 400px;
-  margin-top: 30px;
+  margin-top: 40px;
   /*border: 1px solid rgb(165, 112, 31);*/
   object-fit: cover;
 }
@@ -572,6 +571,7 @@ main button:hover {
   flex-direction: column;
   align-items: center;
   margin-bottom: 50px;
+  margin-top: 20px;
 }
 
 form {
@@ -667,7 +667,7 @@ form button:hover {
   justify-content: center;
   align-items: center;
   margin-top: 20px;
-  margin-bottom: 50px;
+  margin-bottom: 150px;
 }
 
 .form-connexion button {
@@ -678,8 +678,6 @@ form button:hover {
 .login {
   /* border: 1px solid green; */
   text-align: center;
-  height: 300px;
-  width: 300px;
 }
 
 .btn-slide2 {
@@ -777,6 +775,7 @@ form button:hover {
   align-items: center;
   background: white;
   border-radius: 5px;
+  margin-right: 10px;
 }
 
 label {
@@ -926,7 +925,7 @@ label {
   justify-content: center;
   align-items: center;
   background: #dbe1e1;
-  padding-top: 80px;
+  padding-top: 40px;
   transition: 0.3s ease-in-out;
 }
 
@@ -944,6 +943,7 @@ label {
 .foot-container {
   max-width: 1300px;
   margin: 0 auto;
+  padding: 0 10px;
 }
 
 footer {
@@ -1014,7 +1014,6 @@ footer ul {
 
 .icons {
   height: 60px;
-  margin: 30px 0;
   color: gray;
   font-size: 35px;
   border-top: 1px solid rgba(147, 147, 147, 0.671);
@@ -1040,8 +1039,7 @@ footer ul {
   /*----NAV UL---*/
 
   nav ul {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    padding-left: 40px;
   }
 
   /*-----HEADER INPUT----*/
@@ -1388,9 +1386,6 @@ footer ul {
   }
 
   /*----FOOTER----*/
-  footer {
-    height: 610px;
-  }
 
   .foot-bottom {
     display: none;
@@ -1416,9 +1411,46 @@ footer ul {
   }
 }
 
-@media (max-width: 580px) {
-  /*----FOOTER----*/
-  footer {
-    height: 660px;
+@media (max-width: 500px) {
+  /*----HEADER____*/
+  header img {
+    height: 70px;
+    margin-bottom: 40px;
+  }
+  header input {
+    width: 150px;
+    font-size: 12px;
+  }
+  .grid-input {
+    margin-left: -40px;
+    margin-bottom: -70px;
+  }
+  .glass span {
+    margin-left: 30px;
+  }
+  .btn {
+    margin-bottom: -80px;
+    margin-left: -275px;
+  }
+  .filters {
+    padding-left: 60px;
+  }
+  /*-----COMPOSANT NAV---*/
+
+  nav ul {
+    padding-left: 10px;
+    padding-right: 10px;
+    font-size: 16px;
+  }
+  .off button {
+    margin-top: 150px;
+  }
+  /*----COMPOSANT HERO---*/
+  .frame {
+    width: 0;
+  }
+  /*----FOOTER*/
+  .foot-all {
+    display: none;
   }
 }

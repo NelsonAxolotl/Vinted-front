@@ -8,20 +8,20 @@ const Header = ({
   search,
   handleToken,
   setSearch,
-  minPrice,
-  maxPrice,
-  setMinPrice,
-  setMaxPrice,
+  priceMin,
+  priceMax,
+  setPriceMin,
+  setPriceMax,
 }) => {
   // const token = Cookies.get("vinted-token");
   // console.log(token);
 
   const handleMinPriceChange = (e) => {
-    setMinPrice(e.target.value);
+    setPriceMin(e.target.value);
   };
 
   const handleMaxPriceChange = (e) => {
-    setMaxPrice(e.target.value);
+    setPriceMax(e.target.value);
   };
 
   const handleSubmit = (e) => {
@@ -109,13 +109,13 @@ const Header = ({
         <form className="input-filter" onSubmit={handleSubmit}>
           <input
             type="number"
-            value={maxPrice}
+            value={priceMax}
             onChange={handleMaxPriceChange}
             placeholder="Prix Max"
           />
           <input
             type="number"
-            value={minPrice}
+            value={priceMin}
             onChange={handleMinPriceChange}
             placeholder="Prix Min"
           />

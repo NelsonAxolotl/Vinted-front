@@ -6,11 +6,11 @@ import Nav from "../Components/Nav";
 import Footer from "../Components/Footer";
 import avatar from "../IMG/axo.jpg";
 
-const Home = ({ search, maxPrice, minPrice, sort }) => {
+const Home = ({ search, priceMax, priceMin, sort }) => {
   const [data, setData] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
-
-  // const [page, setPage] = useState(1);
+  const [currentPage, setCurrentPage] = useState(1);
+  const pageSize = 10;
 
   useEffect(() => {
     const fetchData = async () => {
@@ -18,9 +18,10 @@ const Home = ({ search, maxPrice, minPrice, sort }) => {
         // console.log("title:", search);
         // console.log("Prices:", prices);
         // console.log("Sort:", sort);
+        const skip = (currentPage - 1) * pageSize;
 
         const response = await axios.get(
-          `https://site--vinted-backend--l75gkv7mvq6s.code.run/offers?title=${search}&priceMax=${maxPrice}&priceMin=${minPrice}&sort=${sort}`
+          `https://site--vinted-backend--l75gkv7mvq6s.code.run/offers?title=${search}&priceMax=${priceMax}&priceMin=${priceMin}&sort=${sort}&page=${currentPage}&limit=${pageSize}&skip=${skip}`
         );
 
         // console.log(response.data);
@@ -31,7 +32,15 @@ const Home = ({ search, maxPrice, minPrice, sort }) => {
       }
     };
     fetchData();
-  }, [search, minPrice, maxPrice, sort]);
+  }, [search, priceMax, priceMin, sort, currentPage]);
+
+  const handleNextPage = () => {
+    setCurrentPage((prevPage) => prevPage + 1);
+  };
+  const handlePrevPage = () => {
+    setCurrentPage((prevPage) => prevPage - 1);
+  };
+  const totalPages = Math.ceil(data.count / pageSize);
 
   return isLoading ? (
     <p></p>
@@ -39,6 +48,15 @@ const Home = ({ search, maxPrice, minPrice, sort }) => {
     <div>
       <Nav />
       <Hero />
+      <div className="pagination">
+        <button onClick={handlePrevPage} disabled={currentPage === 1}>
+          Previous
+        </button>
+        <span>Page{currentPage}</span>
+        <button onClick={handleNextPage} disabled={currentPage === totalPages}>
+          Next
+        </button>
+      </div>
       <div className="article-container">
         {data.offers.map((offer) => {
           return (

@@ -12,7 +12,7 @@ import Publish from "./assets/Pages/Publish";
 import Payment from "./assets/Pages/Payment";
 /*-----Components----*/
 import Header from "./assets/Components/Header";
-
+import Footer from "./assets/Components/Footer";
 function App() {
   // State dans lequel je stocke le token. Sa valeur de base sera :
   // - Si je trouve un cookie token, ce cookie
@@ -21,8 +21,9 @@ function App() {
   const [search, setSearch] = useState("");
   const [limit, setLimit] = useState();
   const [sort, setSort] = useState("");
-  const [minPrice, setMinPrice] = useState("");
-  const [maxPrice, setMaxPrice] = useState("");
+  const [priceMin, setPriceMin] = useState("");
+  const [priceMax, setPriceMax] = useState("");
+
   // Cette fonction permet de stocker le token dans le state et dans les cookies ou supprimer le token dans le state et dans les cookies
   const handleToken = (token) => {
     if (token) {
@@ -41,10 +42,10 @@ function App() {
         search={search}
         handleToken={handleToken}
         setSearch={setSearch}
-        minPrice={minPrice}
-        maxPrice={maxPrice}
-        setMinPrice={setMinPrice}
-        setMaxPrice={setMaxPrice}
+        priceMin={priceMin}
+        priceMax={priceMax}
+        setPriceMin={setPriceMin}
+        setPriceMax={setPriceMax}
       />
 
       <Routes>
@@ -55,12 +56,10 @@ function App() {
               search={search}
               limit={limit}
               setLimit={setLimit}
-              prices={prices}
-              setPrices={setPrices}
               sort={sort}
               setSort={setSort}
-              minPrice={minPrice}
-              maxPrice={maxPrice}
+              priceMin={priceMin}
+              priceMax={priceMax}
             />
           }
         />
