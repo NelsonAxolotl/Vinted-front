@@ -333,7 +333,7 @@ section img {
   margin-bottom: 100px;
   display: flex;
   flex-wrap: wrap;
-  justify-content: flex-start;
+  justify-content: center;
   gap: 10px;
   opacity: 0;
   animation: article 8s forwards;
@@ -439,6 +439,28 @@ article {
 
 .size span {
   font-size: 13px;
+}
+.pagination {
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 0 45px;
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.pagination span {
+  font-size: 25px;
+  font-weight: bold;
+  font-family: "Indie Flower", cursive;
+}
+.pagination button {
+  font-size: 20px;
+  transition: 0.3s ease-in-out;
+}
+.pagination button:hover {
+  transform: scale(1.05);
 }
 
 /*--------------------------------------------------------------------------*/
@@ -783,6 +805,7 @@ label {
   font-family: "Indie Flower", cursive;
   color: #09b1ba;
   padding-left: 20px;
+  cursor: pointer;
 }
 
 .file-frame span {

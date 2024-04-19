@@ -32,12 +32,12 @@ const Signup = ({ handleToken }) => {
       navigate("/");
     } catch (error) {
       console.log(error.response.data);
-      if (error.response.status === 401) {
+      if (error.response.status === 400) {
+        setErrorMessage(" Missing parameters");
+      } else if (error.response.status === 409) {
         setErrorMessage(
           "This email already has an account, please use another one"
         );
-      } else if (error.response.data.message === "Missing parameters") {
-        setErrorMessage("Please fill in all the fields");
       }
     }
   };

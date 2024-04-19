@@ -2,6 +2,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 import logo from "../IMG/logo.jpg";
 import { Link } from "react-router-dom";
+import { Navigate } from "react-router-dom";
 
 const Header = ({
   token,

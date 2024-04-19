@@ -12,14 +12,14 @@ import Publish from "./assets/Pages/Publish";
 import Payment from "./assets/Pages/Payment";
 /*-----Components----*/
 import Header from "./assets/Components/Header";
-import Footer from "./assets/Components/Footer";
+
 function App() {
   // State dans lequel je stocke le token. Sa valeur de base sera :
   // - Si je trouve un cookie token, ce cookie
   // - Sinon, null
   const [token, setToken] = useState(Cookies.get("vinted-token") || null);
   const [search, setSearch] = useState("");
-  const [limit, setLimit] = useState();
+  const [limit, setLimit] = useState("");
   const [sort, setSort] = useState("");
   const [skip, setSkip] = useState("");
   const [priceMin, setPriceMin] = useState("");
@@ -66,7 +66,7 @@ function App() {
             />
           }
         />
-        <Route path="/offers/:id" element={<Offer />} />
+        <Route path="/offers/:id" element={<Offer token={token} />} />
         <Route path="/signup/" element={<Signup handleToken={handleToken} />} />
         <Route path="/login/" element={<Login handleToken={handleToken} />} />
         <Route path="/publish/" element={<Publish token={token} />} />

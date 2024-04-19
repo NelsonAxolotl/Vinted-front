@@ -4,7 +4,7 @@ import { useParams } from "react-router-dom";
 import Footer from "../Components/Footer";
 import { Link } from "react-router-dom";
 
-const Offer = () => {
+const Offer = ({ token }) => {
   const [data, setData] = useState({});
   const [offer, setOffer] = useState({});
   const [isLoading, setIsLoading] = useState(true);
@@ -76,13 +76,17 @@ const Offer = () => {
           <div>
             <div className="slide-btn-buy">
               <Link
-                to={{
-                  pathname: "/payment/",
-                  state: {
-                    title: data.product_name,
-                    price: data.product_price,
-                  },
-                }}
+                to={
+                  token
+                    ? {
+                        pathname: "/payment/",
+                        state: {
+                          title: data.product_name,
+                          price: data.product_price,
+                        },
+                      }
+                    : "/"
+                }
               >
                 <button>Acheter</button>
               </Link>
