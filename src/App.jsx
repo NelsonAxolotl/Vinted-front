@@ -21,6 +21,7 @@ function App() {
   const [search, setSearch] = useState("");
   const [limit, setLimit] = useState();
   const [sort, setSort] = useState("");
+  const [skip, setSkip] = useState("");
   const [priceMin, setPriceMin] = useState("");
   const [priceMax, setPriceMax] = useState("");
 
@@ -60,6 +61,8 @@ function App() {
               setSort={setSort}
               priceMin={priceMin}
               priceMax={priceMax}
+              skip={skip}
+              setSkip={setSkip}
             />
           }
         />
