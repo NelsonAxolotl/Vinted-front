@@ -1,7 +1,6 @@
 import { loadStripe } from "@stripe/stripe-js";
 import { Elements } from "@stripe/react-stripe-js";
-// import { useLocation, Navigate } from "react-router-dom";
-
+import Cookies from "js-cookie";
 import CheckoutForm from "../Components/CheckoutForm";
 import Footer from "../Components/Footer";
 
@@ -10,6 +9,8 @@ const stripePromise = loadStripe(
 );
 
 const Payment = () => {
+  const userToken = Cookies.get("userToken");
+  console.log(userToken);
   const amount = 5;
   // const location = useLocation();
   // const { title, amount } = location.state || {}

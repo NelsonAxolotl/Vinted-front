@@ -85,7 +85,7 @@ const Offer = ({ token }) => {
                           price: data.product_price,
                         },
                       }
-                    : "/"
+                    : "/login"
                 }
               >
                 <button>Acheter</button>

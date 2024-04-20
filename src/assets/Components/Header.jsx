@@ -1,8 +1,8 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 import logo from "../IMG/logo.jpg";
-import { Link } from "react-router-dom";
-import { Navigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+// import { Navigate } from "react-router-dom";
 
 const Header = ({
   token,
@@ -14,8 +14,7 @@ const Header = ({
   setPriceMin,
   setPriceMax,
 }) => {
-  // const token = Cookies.get("vinted-token");
-  // console.log(token);
+  const navigate = useNavigate();
 
   const handleMinPriceChange = (e) => {
     setPriceMin(e.target.value);
@@ -28,6 +27,12 @@ const Header = ({
   const handleSubmit = (e) => {
     e.preventDefault();
   };
+
+  const handleLogout = () => {
+    handleToken(null); // Déconnexion de l'utilisateur
+    navigate("/"); // Redirection vers la page d'accueil
+  };
+
   return (
     <div className="container">
       <header>
@@ -56,10 +61,8 @@ const Header = ({
             </div>
             <div className="off">
               <button
-                onClick={() => {
-                  // Je me déconnecte en appelant la fonction handleToken et en lui donnant null en argument
-                  handleToken(null);
-                }}
+                onClick={handleLogout}
+                // Je me déconnecte en appelant la fonction handleToken et en lui donnant null en argument
               >
                 Se déconnecter
               </button>

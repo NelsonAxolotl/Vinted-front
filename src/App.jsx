@@ -17,7 +17,7 @@ function App() {
   // State dans lequel je stocke le token. Sa valeur de base sera :
   // - Si je trouve un cookie token, ce cookie
   // - Sinon, null
-  const [token, setToken] = useState(Cookies.get("vinted-token") || null);
+  const [token, setToken] = useState(Cookies.get("userToken") || null);
   const [search, setSearch] = useState("");
   const [limit, setLimit] = useState("");
   const [sort, setSort] = useState("");
@@ -28,10 +28,10 @@ function App() {
   // Cette fonction permet de stocker le token dans le state et dans les cookies ou supprimer le token dans le state et dans les cookies
   const handleToken = (token) => {
     if (token) {
-      Cookies.set("vinted-token", token, { expires: 15 });
+      Cookies.set("userToken", token, { expires: 15 });
       setToken(token);
     } else {
-      Cookies.remove("vinted-token");
+      Cookies.remove("userToken");
       setToken(null);
     }
   };
