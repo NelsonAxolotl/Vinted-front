@@ -3,12 +3,12 @@ import axios from "axios";
 import Footer from "../Components/Footer";
 import { Navigate, useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faPlus } from "@fortawesome/free-solid-svg-icons";
+import { faTimes, faPlus } from "@fortawesome/free-solid-svg-icons";
 
 const Publish = ({ token }) => {
   // State qui contient mon image sélectionnée
 
-  const [picture, setPicture] = useState();
+  const [picture, setPicture] = useState(null);
   const [price, setPrice] = useState("");
   const [title, setTitle] = useState("");
   const [description, setDescritption] = useState("");
@@ -20,6 +20,12 @@ const Publish = ({ token }) => {
   const [box, setBox] = useState(false);
   const navigate = useNavigate();
 
+  const handleFileChange = (event) => {
+    setPicture(event.target.files[0]);
+  };
+  const handleRemovePicture = () => {
+    setPicture(null);
+  };
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
@@ -74,22 +80,32 @@ const Publish = ({ token }) => {
                 </div>
 
                 <div className="file-frame">
-                  <span>
-                    <FontAwesomeIcon icon={faPlus} />
-                  </span>
                   {picture && (
-                    <img src={URL.createObjectURL(picture)} alt="produit" />
+                    <div className="image-container">
+                      <img src={URL.createObjectURL(picture)} alt="produit" />
+                      <button
+                        className="remove-button"
+                        onClick={handleRemovePicture}
+                      >
+                        <FontAwesomeIcon icon={faTimes} />
+                      </button>
+                    </div>
                   )}
-                  <label htmlFor="picture-input">Ajoute une photo</label>
-                  <input
-                    style={{ display: "none" }}
-                    id="picture-input"
-                    type="file"
-                    onChange={(event) => {
-                      console.log(event);
-                      setPicture(event.target.files[0]);
-                    }}
-                  />
+
+                  {!picture && (
+                    <>
+                      <label htmlFor="picture-input" className="add-photo">
+                        <FontAwesomeIcon icon={faPlus} />
+                        Ajouter une photo
+                      </label>
+                      <input
+                        style={{ display: "none" }}
+                        id="picture-input"
+                        type="file"
+                        onChange={handleFileChange}
+                      />
+                    </>
+                  )}
                 </div>
               </div>
               <div className="publish-form">
