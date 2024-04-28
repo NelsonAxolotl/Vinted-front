@@ -1141,7 +1141,16 @@ footer ul {
 .icons span:hover {
   color: lightgray;
 }
+.icons a {
+  text-decoration: none;
+  color: inherit;
+  transition: color 0.3s ease-in-out;
+  font-size: 35px;
+}
 
+.icons a:hover {
+  color: lightgray; /* Couleur de survol des liens */
+}
 /*-------------------------------------------------------------------------*/
 /*-----RESPONSIVE----*/
 
