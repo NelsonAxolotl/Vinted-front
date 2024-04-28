@@ -814,7 +814,7 @@ form button:hover {
 }
 
 .file-frame {
-  height: 250px;
+  height: 200px;
   width: 300px;
   border: 1px dashed lightgrey;
   display: flex;
@@ -835,7 +835,7 @@ form button:hover {
   display: block;
   cursor: pointer;
   padding: 10px;
-  background-color: lightgray;
+  background-color: rgb(218, 216, 216);
   border: 1px solid gray;
   border-radius: 5px;
   text-align: center;
@@ -856,12 +856,17 @@ form button:hover {
 .remove-button:hover {
   background-color: rgba(255, 255, 255, 0.9);
 }
+
 label {
   font-size: 25px;
   font-family: "Indie Flower", cursive;
   color: #09b1ba;
   padding-left: 20px;
   cursor: pointer;
+  transition: 0.3s ease-in-out;
+}
+label:hover {
+  background: #f7f9f8;
 }
 
 .file-frame span {
