@@ -6,7 +6,7 @@ import Nav from "../Components/Nav";
 import Footer from "../Components/Footer";
 import avatar from "../IMG/axo.jpg";
 
-const Home = ({ search, priceMax, priceMin, sort }) => {
+const Home = ({ search, priceMax, priceMin, sort, skip }) => {
   const [data, setData] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [currentPage, setCurrentPage] = useState(1);
@@ -18,7 +18,6 @@ const Home = ({ search, priceMax, priceMin, sort }) => {
         // console.log("title:", search);
         // console.log("Prices:", prices);
         // console.log("Sort:", sort);
-        const skip = (currentPage - 1) * limit;
 
         const response = await axios.get(
           `https://site--vinted-backend--l75gkv7mvq6s.code.run/offers?title=${search}&priceMax=${priceMax}&priceMin=${priceMin}&sort=${sort}&page=${currentPage}&limit=${limit}&skip=${skip}`
@@ -32,7 +31,7 @@ const Home = ({ search, priceMax, priceMin, sort }) => {
       }
     };
     fetchData();
-  }, [search, priceMax, priceMin, sort, currentPage]);
+  }, [search, priceMax, priceMin, sort, skip, currentPage]);
 
   const handleNextPage = () => {
     setCurrentPage((prevPage) => prevPage + 1);
@@ -93,8 +92,14 @@ const Home = ({ search, priceMax, priceMin, sort }) => {
                     {/* <FontAwesomeIcon icon="fa-light fa-heart" /> */}
                   </div>
                   <div className="size-mark">
-                    <span>{offer.product_details[1].TAILLE}</span>
-                    <span>{offer.product_details[0].MARQUE}</span>
+                    <div className="size">
+                      <span>Size:</span>
+                      <span>{offer.product_details[1].TAILLE}</span>
+                    </div>
+                    <div className="brand">
+                      <span>Brand:</span>
+                      <span>{offer.product_details[0].MARQUE}</span>
+                    </div>
                   </div>
                 </div>
               </article>

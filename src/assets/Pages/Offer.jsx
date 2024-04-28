@@ -3,6 +3,7 @@ import axios from "axios";
 import { useParams } from "react-router-dom";
 import Footer from "../Components/Footer";
 import { Link } from "react-router-dom";
+import ava from "../IMG/avatar.jpg";
 
 const Offer = ({ token }) => {
   const [data, setData] = useState({});
@@ -44,50 +45,63 @@ const Offer = ({ token }) => {
         </div>
         <div className="details">
           <div className="details-top">
-            <span>
-              <p>{data.product_price} €</p>
-            </span>
-            {data.product_details.map((detail) => {
+            <div className="offer-price">
+              <span>
+                <p>{data.product_price} €</p>
+              </span>
+            </div>
+            <div className="offer-marque">
+              <span>MARQUE: </span>
+              <span>{data.product_details[0].MARQUE}</span>
+            </div>
+            <div className="offer-taille">
+              <span>TAILLE: </span>
+              <span>{data.product_details[1].TAILLE}</span>
+            </div>
+            <div className="offer-state">
+              <span>ÉTAT: </span>
+              <span>{data.product_details[2].ÉTAT}</span>
+            </div>
+            <div className="offer-color">
+              <span>COULEUR: </span>
+              <span>{data.product_details[3].COULEUR}</span>
+            </div>
+            <div className="offer-place">
+              <span>EMPLACEMENT: </span>
+              <span>{data.product_details[4].EMPLACEMENT}</span>
+            </div>
+            {/* {data.product_details.map((detail) => {
               //console.log(detail);
               const keys = Object.keys(detail);
               //console.log(keys);
               const keyName = keys[0];
               //console.log(keyName);
+
               return (
                 <p key={keyName}>
                   {keyName} {detail[keyName]}
                 </p>
               );
-            })}
+            })} */}
           </div>
           <div className="details-bottom">
             <h2>{offer.product_name}</h2>
             <p>{offer.product_description}</p>
             <div className="avatar">
-              <span>
+              {offer.owner.account && offer.owner.account.avatar ? (
                 <img
-                  src={offer.owner.account.avatar?.secure_url}
+                  src={offer.owner.account.avatar.secure_url}
                   alt={offer.owner.account.username}
                 />
-              </span>
+              ) : (
+                <img src={ava} alt="Placeholder Avatar" />
+              )}
               <span>{offer.owner.account.username}</span>
             </div>
           </div>
           <div>
             <div className="slide-btn-buy">
-              <Link
-                to={
-                  token
-                    ? {
-                        pathname: "/payment/",
-                        state: {
-                          title: data.product_name,
-                          price: data.product_price,
-                        },
-                      }
-                    : "/login"
-                }
-              >
+              <Link to="/payment/" state={{ data: data }}>
                 <button>Acheter</button>
               </Link>
             </div>

@@ -9,6 +9,7 @@ const Login = ({ handleToken }) => {
   const [password, setPassword] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
   const [, setToken] = useState();
+
   const navigate = useNavigate();
 
   const handleSubmit = async (event) => {
@@ -22,7 +23,7 @@ const Login = ({ handleToken }) => {
         }
       );
       // console.log(response.data);
-      Cookies.set("vinted-token", response.data.token, { expires: 15 });
+      Cookies.set("userToken", response.data.token, { expires: 15 });
       setToken(response.data.token);
       if (response.data.token) handleToken(response.data.token);
       navigate("/");
