@@ -75,7 +75,9 @@ const Home = ({ search, priceMax, priceMin, sort, skip }) => {
                       {offer.owner.account && offer.owner.account.username}
                     </span>
                   </div>
-
+                  <div className="title">
+                    <h2>{offer.product_name}</h2>
+                  </div>
                   <div className="product">
                     <img
                       src={offer.product_image.url}

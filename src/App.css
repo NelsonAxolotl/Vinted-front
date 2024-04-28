@@ -348,11 +348,15 @@ section img {
 article {
   display: flex;
   width: 235px;
-  height: 490px;
+  height: 520px;
   /* border: 1px solid red; */
   margin: 20px 0;
 }
-
+.title h2 {
+  font-size: 18px;
+  margin-bottom: 10px;
+  font-family: "Indie Flower", cursive;
+}
 .avatar {
   display: flex;
   justify-content: flex-start;

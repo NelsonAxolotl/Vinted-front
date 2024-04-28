@@ -19,19 +19,26 @@ const CheckoutForm = ({ data }) => {
         name: "12345678987654321",
       });
 
-      //   console.log(stripeResponse);
-      const stripeToken = stripeResponse.token.id;
+      if (stripeResponse && stripeResponse.token) {
+        const stripeToken = stripeResponse.token.id;
 
-      const response = await axios.post(
-        "https://site--vinted-backend--l75gkv7mvq6s.code.run/payment",
-        {
-          token: stripeToken,
-          title: data.product_name,
-          amount: data.product_price,
+        const response = await axios.post(
+          "https://site--vinted-backend--l75gkv7mvq6s.code.run/payment",
+          {
+            token: stripeToken,
+            title: data.product_name,
+            amount: data.product_price,
+          }
+        );
+
+        console.log(response.data);
+        // Vérifiez le statut de réponse et mettez à jour l'état en conséquence
+        if (response.data.status === "succeeded") {
+          setIsPaid(true);
         }
-      );
-      console.log(response.data);
-      setDisabled(true);
+      }
+
+      setDisabled(false);
     } catch (error) {
       console.log(error);
     }
